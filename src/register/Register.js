@@ -9,7 +9,7 @@ import "./Register.css";
 import botProfile from "../images/botProfile.png";
 import axios from "../api/axios";
 
-const NAME_REGEX = /^[A-Za-z]{2,}(?:[-' ][A-Za-z]+)*.{3,}$/; // username must start with a letter (lower or upper case), followed by 3-23 characters -- username must be at least 4 characters long, and not more then 24 characters
+const NAME_REGEX = /^[A-Za-z]{2,}(?:[-' ][A-Za-z]+)*$/; // username must start with a letter (lower or upper case), followed by 3-23 characters -- username must be at least 4 characters long, and not more then 24 characters
 const PWD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,24}$/; // password requires at least one lower case letter, one upper case letter, and one special character, and has to be between 8-24 characters long
 const REGISTER_URL = "/register";
 
@@ -187,9 +187,12 @@ const Register = () => {
                             }
                           >
                             <FontAwesomeIcon icon={faInfoCircle} />
-                            5 or more characters.
+                            Must contain 5 or more characters.
                             <br />
-                            Must contain letters only.
+                            <br />
+                            <FontAwesomeIcon icon={faInfoCircle} />
+                            Please note special characters are not allowed
+                            except for spaces, hyphens (-), and apostrophes (').
                           </p>
                         </div>
 
@@ -244,9 +247,13 @@ const Register = () => {
                             <FontAwesomeIcon icon={faInfoCircle} />
                             8 to 24 characters.
                             <br />
+                            <br />
+                            <FontAwesomeIcon icon={faInfoCircle} />
                             Must include uppercase and lowercase letters, a
                             number and a special character.
                             <br />
+                            <br />
+                            <FontAwesomeIcon icon={faInfoCircle} />
                             Allowed special characters:{" "}
                             <span aria-label="exclamation mark">!</span>{" "}
                             <span aria-label="at symbol">@</span>{" "}
