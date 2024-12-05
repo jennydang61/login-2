@@ -1,0 +1,118 @@
+body {
+    font-family: 'Outfit', sans-serif;
+    background-color: #fff6ee;
+    margin: 0;
+    padding: 0;
+}
+
+.create-account-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #fff6ee;
+}
+
+.content-wrapper {
+    display: flex;
+    flex-direction: column;
+    max-width: 1024px;
+    width: 100%;
+    padding: 20px;
+    background-color: #fff6ee;
+}
+
+.main-content {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+} 
+
+.content-columns {
+    display: flex;
+    gap: 40px;
+    width: 100%;
+}
+
+.image-column {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.bot-profile {
+    width: 100%;
+    max-width: 250px;
+    height: auto;
+}
+
+.form-column {
+    flex: 1.4;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.form-content {
+    width: 100%;
+}
+
+.form-title {
+    font-size: 36px;
+    font-weight: 700;
+    color: #262628;
+    margin-bottom: 30px;
+}
+
+.input-label {
+    font-size: 16px;
+    color: #262628;
+    margin-bottom: 8px;
+    display: block;
+}
+
+.input-field {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #262628;
+    border-radius: 4px;
+    font-size: 16px;
+    margin-bottom: 20px;
+    background-color: #fff;
+}
+
+.sign-up-button {
+    background-color: #E1B573;
+    color: #262628;
+    font-size: 20px;
+    border: 2px solid #262628;
+    padding: 12px 40px;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: -3px 3px 0px #262628;
+}
+
+.sign-up-button:hover {
+    background-color: #E1B573;
+    box-shadow: -4px 4px 0px #262628;
+}
+
+@media (max-width: 768px) {
+    .main-content {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .content-columns {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .bot-profile {
+        max-width: 200px;
+    }
+}
