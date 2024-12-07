@@ -1,0 +1,252 @@
+body {
+  font-family: 'Outfit', sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.landing-page {
+  background-color: #fff6ee;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  align-items: center;
+  padding: 83px 80px 146px;
+}
+
+.landing-page .div{
+  display: flex;
+  width: 100%;
+  max-width: 1046px;
+  height: 1300px;
+  flex-direction: column;
+}
+
+.landing-page .nav-bar{
+  height:26px;
+  left: 196px;
+  position:absolute;
+  top: 83px;
+  width: 1038px;
+}
+
+ .landing-page .login {
+  color:#262628;
+  font-size: 20px;
+  font-weight: 400;
+  left: 973px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  top: 0;
+  width: 59px;
+ }
+
+ .landing-page .logo {
+  color:#262628;
+  font-size: 20px;
+  font-weight: 700;
+  left: 0;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  top: 0;
+  width: 59px;
+ } 
+
+ .hero-section .button {
+  background-color: #E1B573;
+  color: #262628;
+  font-size: 20px;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: -3px 3px 0px #262628;
+  border: 2px solid #262628;
+  background-size: 100% 100%;
+  height: 59px;
+  left:204px;
+  position: absolute;
+  top: 550px;
+  width: 180px;
+ }
+
+ .hero-section .button:hover {
+  background-color: #E1B573;
+  box-shadow: -4px 4px 0px #262628;
+}
+
+.find-your-perfect {
+  color: #262628;
+  font-size: 60px;
+  font-weight: 700;
+  left: 206px;
+  letter-spacing: 0;
+  position: absolute;
+  top: 300px;
+}
+
+.hero-section .people {
+  height: 532px;
+  left: 762px;
+  position: absolute;
+  top: 165px;
+  width: 480px;
+}
+
+.section-title {
+  color:#262628;
+  font-size: 60px;
+  font-weight: 700;
+  left: 160px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  text-align: center;
+  top: 900px;
+  width: 1134px;
+}
+
+.group {
+  height: 188px;
+  left: 222px;
+  position: absolute;
+  top: 1206px;
+  width: 995px;
+}
+
+.overlap-group-wrapper {
+  height: 188px;
+  left: 0px;
+  position: absolute;
+  top: 0;
+  width: 299px;
+}
+
+.overlap-group {
+  height: 188px;
+  position: relative;
+  width: 297px;
+}
+
+.rectangle {
+  background-color: #658d82;
+  border-radius: 30px;
+  height: 116px;
+  left: 0;
+  position: absolute;
+  top: 72px;
+  width: 297px;
+}
+
+.p {
+  color: #fff6ee;
+  font-size: 20px;
+  font-weight: 700;
+  left: 24px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  text-align: center;
+  top: 90px;
+  width: 249px;
+}
+
+.pfp {
+  height: 105px;
+  left: 96px;
+  position: absolute;
+  top: 0;
+  width: 105px;
+}
+
+.overlap-wrapper {
+  height: 187px;
+  left: 349px;
+  position: absolute;
+  top: 1px;
+  width: 299px;
+}
+
+.overlap-2 {
+  height: 187px;
+  position: relative;
+  width: 297px;
+}
+
+.rectangle-2 {
+  background-color: #e1b573;
+  border-radius: 30px;
+  height: 116px;
+  left: 0;
+  position: absolute;
+  top: 71px;
+  width: 297px;
+}
+
+.text-wrapper-2 {
+  color: #fff6ee;
+  font-size: 20px;
+  font-weight: 700;
+  left: 20px;
+  right: 20px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  text-align: center;
+  top: 90px;
+  width: 249;
+}
+
+.picking-user {
+  height:104px;
+  left: 35px;
+  position: absolute;
+  top: 0;
+  width: 222px;
+}
+
+.div-wrapper {
+  height: 159px;
+  left: 698px;
+  position: absolute;
+  top: 29px;
+  width: 299px;
+}
+
+.overlap-3 {
+  height: 159px;
+  position: relative;
+  width: 297px;
+}
+
+.rectangle-3 {
+  background-color: #c68596;
+  border-radius: 30px;
+  height: 115px;
+  left: 0;
+  position: absolute;
+  top: 43px;
+  width: 297px;
+}
+
+.text-wrapper-3 {
+  color: #fff6ee;
+  font-size: 20px;
+  font-weight: 700;
+  left: 22px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  text-align: center;
+  top: 49px;
+  width: 249px;
+}
+
+.chatbot {
+  height: 58px;
+  left: 38px;
+  position: absolute;
+  top: 0;
+  width: 239px;
+}
