@@ -9,7 +9,7 @@ import "./Register.css";
 import botProfile from "../../images/botProfile.png";
 import axios from "../../api/axios";
 
-const NAME_REGEX = /^[A-Za-z]{2,}(?:[-' ][A-Za-z]+)*.{5,}$/; // username must start with a letter (lower or upper case), followed by 3-23 characters -- username must be at least 4 characters long, and not more then 24 characters
+const NAME_REGEX = /^[A-Za-z]{2,}(?:[-' ][A-Za-z]+)*.{3,}$/; // username must start with a letter (lower or upper case), followed by 3-23 characters -- username must be at least 4 characters long, and not more then 24 characters
 const PWD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,24}$/; // password requires at least one lower case letter, one upper case letter, and one special character, and has to be between 8-24 characters long
 const REGISTER_URL = "/register";
 
@@ -48,8 +48,8 @@ const Register = () => {
 
   useEffect(() => {
     const result = PWD_REGEX.test(pwd);
-    console.log(result);
-    console.log(pwd);
+    // console.log(result); // devel
+    // console.log(pwd); // devel
     setValidPwd(result);
     const match = pwd === matchPwd;
     setValidMatch(match);

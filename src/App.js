@@ -1,7 +1,7 @@
 import Register from "./components/register/Register";
 import Login from "./components/login/Login";
-// import Home from "./components/home/Home";
-import Home from "./components/Home";
+import Home from "./components/home/Home";
+// import Home from "./components/Home";
 import LandingPage from "./components/landing/landingPage";
 import LinkPage from "./components/LinkPage";
 import Admin from "./components/Admin";
@@ -30,7 +30,6 @@ function App() {
         </Route>
         <Route element={<RequireAuth allowedRole={"STUDENT"} />}>
           <Route path="/" element={<Home />} />
-          {/* <Route path="/" element={<Home />} /> */}
         </Route>
 
         {/* catch-all */}

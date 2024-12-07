@@ -1,10 +1,10 @@
 import { Link } from "react-router-dom";
-// import VerificationRequests from "./VerificationRequests";
+import VerificationRequests from "./VerificationRequests";
 // import axios from "../api/axios";
 // import useAxiosPrivate from "../hooks/useAxiosPrivate";
 // import { useState, useEffect } from "react";
 
-// import useRefreshToken from "../hooks/useRefreshToken"; // testing
+import useRefreshToken from "../hooks/useRefreshToken"; // testing
 // import Users from "./Users";
 
 // const VERIFY_URL = "/verify";
@@ -12,7 +12,7 @@ import { Link } from "react-router-dom";
 const Admin = () => {
   // const [data, setData] = useState(null);
   // const axiosPrivate = useAxiosPrivate();
-  // const refresh = useRefreshToken(); // testing
+  const refresh = useRefreshToken(); // testing
   // useEffect(() => {
   //   const fetchData = async () => {
   //     try {
@@ -29,10 +29,10 @@ const Admin = () => {
     <section>
       <h1>Admin Page</h1>
       <br />
-      {/* <VerificationRequests /> */}
+      <VerificationRequests />
       {/* <p>Fetched Data</p>
       <pre>{JSON.stringify(data, null, 2)}</pre> */}
-      {/* <button onClick={() => refresh()}>Refresh</button> */}
+      <button onClick={() => refresh()}>Refresh</button>
       <div className="flexGrow">
         <Link to="/">Home</Link>
       </div>
