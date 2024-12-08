@@ -202,6 +202,7 @@ const Home = () => {
             />
           ))}
         </section>
+        <a href="create-profile">Create Profile</a>
       </div>
     </main>
   );

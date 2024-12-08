@@ -5,12 +5,13 @@ import Home from "./components/home/Home";
 import LandingPage from "./components/landing/landingPage";
 import LinkPage from "./components/LinkPage";
 import Admin from "./components/Admin";
-import Editor from "./components/Editor";
+// import Editor from "./components/Editor";
 import Missing from "./components/Missing";
 import Unauthorized from "./components/Unauthorized";
 import Layout from "./components/Layout";
 import RequireAuth from "./components/RequireAuth";
 import { Routes, Route } from "react-router-dom";
+import CreateProfile from "./components/CreateProfile";
 
 function App() {
   return (
@@ -26,10 +27,11 @@ function App() {
         {/* want to protect these routes */}
         <Route element={<RequireAuth allowedRole={"ADMIN"} />}>
           <Route path="admin" element={<Admin />} />
-          <Route path="editor" element={<Editor />} />
+          {/* <Route path="editor" element={<Editor />} /> */}
         </Route>
         <Route element={<RequireAuth allowedRole={"STUDENT"} />}>
           <Route path="/" element={<Home />} />
+          <Route path="create-profile" element={<CreateProfile />} />
         </Route>
 
         {/* catch-all */}
