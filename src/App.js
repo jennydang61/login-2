@@ -21,12 +21,12 @@ function App() {
         <Route path="login" element={<Login />} />
         <Route path="register" element={<Register />} />
         <Route path="landing" element={<LandingPage />} />
-        <Route path="linkpage" element={<LinkPage />} />
         <Route path="unauthorized" element={<Unauthorized />} />
 
         {/* want to protect these routes */}
         <Route element={<RequireAuth allowedRole={"ADMIN"} />}>
           <Route path="admin" element={<Admin />} />
+          <Route path="linkpage" element={<LinkPage />} />
           {/* <Route path="editor" element={<Editor />} /> */}
         </Route>
         <Route element={<RequireAuth allowedRole={"STUDENT"} />}>
