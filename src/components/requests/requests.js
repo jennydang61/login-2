@@ -3,10 +3,6 @@ import React, { useState, useEffect } from "react";
 import axios from "../../api/axios"; 
 import useAuth  from "../../hooks/useAuth";
 
-// only looks good with four requests
-/*
-this is the real dynamic code
-
 const Requests = () => {
   const { user } = useAuth(); 
   const [requests, setRequests] = useState([]);
@@ -69,7 +65,8 @@ const Requests = () => {
     fetchRequests();
   }, [user]);
 
-  //if (loading) return null;
+  if (loading) return null;
+  
   return (
         <div className="requests-container">
           <h2>Roommate Requests</h2>
@@ -95,10 +92,10 @@ const Requests = () => {
         </div>
       );
 };
-*/
+
 
 // hard code for testing
-const Requests = () => {
+/*const Requests = () => {
     const [requests, setRequests] = useState([
       {
         status_ID: 1,
@@ -110,11 +107,11 @@ const Requests = () => {
       },
       {
         status_ID: 3,
-        sender_name: "Josh Smith",
+        sender_name: "Charlie Brown",
       },
       {
         status_ID: 4,
-        sender_name: "Josh Smith",
+        sender_name: "Jane Walker",
       },
     ]);
   
@@ -154,5 +151,6 @@ const Requests = () => {
       );
       
   }
+      */
 
 export default Requests;

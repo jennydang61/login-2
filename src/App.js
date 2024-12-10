@@ -1,16 +1,14 @@
+import { Routes, Route, Navigate } from "react-router-dom"; // Import Navigate for redirection
 import Register from "./components/register/Register";
 import Login from "./components/login/Login";
 import Home from "./components/home/Home";
-// import Home from "./components/Home";
 import LandingPage from "./components/landing/landingPage";
 import LinkPage from "./components/LinkPage";
 import Admin from "./components/Admin";
-// import Editor from "./components/Editor";
 import Missing from "./components/Missing";
 import Unauthorized from "./components/Unauthorized";
 import Layout from "./components/Layout";
 import RequireAuth from "./components/RequireAuth";
-import { Routes, Route } from "react-router-dom";
 import CreateProfile from "./components/CreateProfile";
 import HeaderLayout from './components/header/HeaderLayout';
 import Messages from './components/messages/messages';
@@ -20,31 +18,31 @@ function App() {
   return (
     <Routes>
       <Route path="/" element={<Layout />}>
-        {/* public routes */}
-        <Route path="login" element={<Login />} />
+        {/* Redirect the root path to /landing */}
+        <Route index element={<Navigate to="/landing" replace />} />
+
+        {/* Public routes */}
+        <Route path="/login" element={<Login />} />
         <Route path="register" element={<Register />} />
         <Route path="landing" element={<LandingPage />} />
         <Route path="unauthorized" element={<Unauthorized />} />
-        <Route path="/Requests" element={<HeaderLayout><Requests /></HeaderLayout>} />
-        {/* /<Route path="/Account" element={<HeaderLayout><Account /></HeaderLayout>} /> */}
 
-
-        {/* want to protect these routes */}
+        {/* Protected routes */}
         <Route element={<RequireAuth allowedRole={"ADMIN"} />}>
           <Route path="admin" element={<Admin />} />
           <Route path="linkpage" element={<LinkPage />} />
-          {/* <Route path="editor" element={<Editor />} /> */}
         </Route>
         <Route element={<RequireAuth allowedRole={"STUDENT"} />}>
           <Route path="/" element={<Home />} />
           <Route path="create-profile" element={<CreateProfile />} />
         </Route>
-        <Route element={<RequireAuth allowedRole={"STUDENT"}/>}>
-        {/* requests goes here i'm just testing without auth */}
+        <Route element={<RequireAuth allowedRole={"STUDENT"} />}>
+          <Route path="messages" element={<HeaderLayout><Messages /></HeaderLayout>} />
         </Route>
-        <Route element={<RequireAuth allowedRole={"STUDENT"}/>}>
-          <Route path="/Messages" element={<HeaderLayout><Messages /></HeaderLayout>} />
+        <Route element={<RequireAuth allowedRole={"STUDENT"} />}>
+        <Route path="requests" element={<HeaderLayout><Requests /></HeaderLayout>} />
         </Route>
+
         {/* catch-all */}
         <Route path="*" element={<Missing />} />
       </Route>
