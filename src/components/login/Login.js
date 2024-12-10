@@ -2,6 +2,8 @@ import { useRef, useState, useEffect } from "react";
 // import AuthContext from "../../context/AuthProvider";
 import useAuth from "../../hooks/useAuth";
 import { Link, useNavigate, useLocation, replace } from "react-router-dom";
+import "./Login.css";
+import chatbotLaptop from '../../images/chatbotLaptop.png';
 
 import axios from "../../api/axios";
 const LOGIN_URL = "/auth";
@@ -77,7 +79,7 @@ const Login = () => {
     //       </p>
     //     </section>
     //   ) : (
-    <section>
+    <section className="sign-in-container">
       <p
         ref={errRef}
         className={errMsg ? "errmsg" : "offscreen"}
@@ -85,7 +87,11 @@ const Login = () => {
       >
         {errMsg}
       </p>
-      <h1>Sign In</h1>
+      <div className="image-container">
+      <img className="chat-bot-laptop" src={chatbotLaptop} alt="Bot Profile" />
+      </div>
+      <div className="form-container">
+      <h1>Back to Finding <br/> Your Match</h1>
       <form onSubmit={handleSubmit}>
         <label htmlFor="email">Email:</label>
         <input
@@ -104,9 +110,9 @@ const Login = () => {
           value={pwd} //clear input upon submission
           required
         />
-        <button>Sign In</button>{" "}
+        <button className="sign-in-button">Sign In</button>{" "}
         {/* no need to specify onclick because this is the only button in the form*/}
-        <p>
+        <p className="sign-up">
           Need an account?
           <br />
           <span className="line">
@@ -114,6 +120,7 @@ const Login = () => {
           </span>
         </p>
       </form>
+      </div>
     </section>
     //   )}
     // </>
