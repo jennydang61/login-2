@@ -3,7 +3,7 @@ import Register from "./components/register/Register";
 import Login from "./components/login/Login";
 import Home from "./components/home/Home";
 import LandingPage from "./components/landing/landingPage";
-import LinkPage from "./components/LinkPage";
+// import LinkPage from "./components/LinkPage";
 import Admin from "./components/Admin";
 import Missing from "./components/Missing";
 import Unauthorized from "./components/Unauthorized";
@@ -39,20 +39,17 @@ function App() {
         {/* Protected routes */}
         <Route element={<RequireAuth allowedRole={"ADMIN"} />}>
           <Route path="admin" element={<Admin />} />
-          <Route path="linkpage" element={<LinkPage />} />
         </Route>
         <Route element={<RequireAuth allowedRole={"STUDENT"} />}>
-          <Route
+          {/* <Route
             path="/"
             element={
               <HeaderLayout>
                 <Home />
               </HeaderLayout>
             }
-          />
+          /> */}
           <Route path="create-profile" element={<CreateProfile />} />
-        </Route>
-        <Route element={<RequireAuth allowedRole={"STUDENT"} />}>
           <Route
             path="messages"
             element={

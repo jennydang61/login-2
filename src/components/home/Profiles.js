@@ -5,12 +5,12 @@ import useAxiosPrivate from "../../hooks/useAxiosPrivate";
 
 const Profiles = () => {
   const navigate = useNavigate();
-  const location = useLocation();
+  // const location = useLocation();
   const axiosPrivate = useAxiosPrivate();
 
   const [profiles, setProfiles] = useState();
   const [userId, setUserId] = useState();
-  const [success, setSuccess] = useState(false);
+  // const [success, setSuccess] = useState(false);
 
   let isMounted = true;
 
@@ -18,9 +18,11 @@ const Profiles = () => {
     isMounted = true;
     const controller = new AbortController();
     try {
+      console.log("reach 1");
       const response = await axiosPrivate.get("/profile", {
         signal: controller.signal,
       });
+      console.log("reach 2");
       setUserId(response.data.user_ID);
       isMounted && setProfiles(response.data.profiles);
       console.log(userId);
@@ -38,6 +40,7 @@ const Profiles = () => {
 
   useEffect(() => {
     getProfiles();
+    // console.log("getProfiles ran"); // devel
   }, []);
 
   return (

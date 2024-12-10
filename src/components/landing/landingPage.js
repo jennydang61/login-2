@@ -16,7 +16,7 @@ function LandingPage() {
           <header className="nav-bar">
             <h1 className="logo">LOGO</h1>
             <nav>
-              <Link to="/login" className="login">
+              <Link to="/home" className="login">
                 Sign in
               </Link>
             </nav>

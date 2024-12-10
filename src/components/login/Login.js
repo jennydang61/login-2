@@ -3,7 +3,7 @@ import { useRef, useState, useEffect } from "react";
 import useAuth from "../../hooks/useAuth";
 import { Link, useNavigate, useLocation, replace } from "react-router-dom";
 import "./Login.css";
-import chatbotLaptop from '../../images/chatbotLaptop.png';
+import chatbotLaptop from "../../images/chatbotLaptop.png";
 
 import axios from "../../api/axios";
 const LOGIN_URL = "/auth";
@@ -50,10 +50,10 @@ const Login = () => {
       setAuth({ email, pwd, role, accessToken });
       setEmail(""); // clearing the input fields
       setPwd(""); // clearing the input fields
-      //navigate("/home", { replace: true }); 
+      //navigate("/home", { replace: true });
       // setSuccess(true);
-      // navigate(from, { replace: true }); // going back to where you came from after successful login
-      navigate(from, { replace: true });
+      navigate(from, { replace: true }); // going back to where you came from after successful login
+      // navigate("/home", { replace: true });
     } catch (err) {
       if (!err?.response) {
         setErrMsg("No Server Response");
@@ -89,38 +89,44 @@ const Login = () => {
         {errMsg}
       </p>
       <div className="image-container">
-      <img className="chat-bot-laptop" src={chatbotLaptop} alt="Bot Profile" />
+        <img
+          className="chat-bot-laptop"
+          src={chatbotLaptop}
+          alt="Bot Profile"
+        />
       </div>
       <div className="form-container">
-      <h1>Back to Finding <br/> Your Match</h1>
-      <form onSubmit={handleSubmit}>
-        <label htmlFor="email">Email:</label>
-        <input
-          type="text"
-          id="email"
-          ref={emailRef}
-          onChange={(e) => setEmail(e.target.value)}
-          value={email} //clear input upon submission
-          required
-        />
-        <label htmlFor="pwd">Password:</label>
-        <input
-          type="password"
-          id="password"
-          onChange={(e) => setPwd(e.target.value)}
-          value={pwd} //clear input upon submission
-          required
-        />
-        <button className="sign-in-button">Sign In</button>{" "}
-        {/* no need to specify onclick because this is the only button in the form*/}
-        <p className="sign-up">
-          Need an account?
-          <br />
-          <span className="line">
-            <a href="register">Sign up</a>
-          </span>
-        </p>
-      </form>
+        <h1>
+          Back to Finding <br /> Your Match
+        </h1>
+        <form onSubmit={handleSubmit}>
+          <label htmlFor="email">Email:</label>
+          <input
+            type="text"
+            id="email"
+            ref={emailRef}
+            onChange={(e) => setEmail(e.target.value)}
+            value={email} //clear input upon submission
+            required
+          />
+          <label htmlFor="pwd">Password:</label>
+          <input
+            type="password"
+            id="password"
+            onChange={(e) => setPwd(e.target.value)}
+            value={pwd} //clear input upon submission
+            required
+          />
+          <button className="sign-in-button">Sign In</button>{" "}
+          {/* no need to specify onclick because this is the only button in the form*/}
+          <p className="sign-up">
+            Need an account?
+            <br />
+            <span className="line">
+              <Link to="register">Sign up</Link>
+            </span>
+          </p>
+        </form>
       </div>
     </section>
     //   )}

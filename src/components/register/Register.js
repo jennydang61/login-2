@@ -22,6 +22,10 @@ const Register = () => {
 
   const [email, setEmail] = useState("");
 
+  const [yos, setYos] = useState("");
+
+  const [major, setMajor] = useState("");
+
   const [name, setName] = useState("");
   const [validName, setValidName] = useState(false);
   const [nameFocus, setNameFocus] = useState(false);
@@ -79,20 +83,17 @@ const Register = () => {
           email,
           password: pwd,
           user_type: "STUDENT",
-          yos: 2,
-          major: "fe",
+          yos,
+          major,
         }),
         {
           headers: { "Content-Type": "application/json" },
           //   withCredentials: true,
         }
       );
-      console.log(response.data); // response from the server
-      //   console.log(response.accessToken);
-      //   console.log(JSON.stringify(response));
+      console.log(response.data);
       setSuccess(true);
-      navigate("/create-profile"); // redirect to create-profile
-      // clear input fields from the registration form
+      navigate("/create-profile");
     } catch (err) {
       if (!err?.response) {
         // haven't heard back from the server
@@ -213,6 +214,38 @@ const Register = () => {
                         </div>
 
                         <div>
+                          <label htmlFor="major" className="input-label">
+                            Major:
+                          </label>
+                          <input
+                            type="text"
+                            id="major"
+                            className="input-field"
+                            value={major}
+                            onChange={(e) => setMajor(e.target.value)}
+                            required
+                            placeholder="Enter your major of study"
+                          />
+                        </div>
+
+                        <div>
+                          <label htmlFor="yos" className="input-label">
+                            Year of Study:
+                          </label>
+                          <input
+                            type="number"
+                            id="yos"
+                            min="1"
+                            max="9"
+                            className={"text-input"}
+                            value={yos}
+                            onChange={(e) => setYos(e.target.value)}
+                            required
+                            placeholder="Enter your year of study"
+                          />
+                        </div>
+
+                        <div>
                           <label htmlFor="password" className="input-label">
                             Password:
                             <FontAwesomeIcon
@@ -325,7 +358,7 @@ const Register = () => {
                         <br />
                         <span className="line">
                           {/* put router link here */}
-                          <a href="login">Sign In</a> 
+                          <a href="login">Sign In</a>
                         </span>
                       </p>
                     </section>

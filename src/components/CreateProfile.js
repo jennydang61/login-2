@@ -224,7 +224,7 @@ function CreateProfile() {
             </button>
           </form>
           <p>
-            <Link to="/">Go back to Home</Link>
+            <Link to="/home">Go back to Home</Link>
           </p>
         </main>
       )}
