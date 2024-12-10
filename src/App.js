@@ -13,6 +13,8 @@ import CreateProfile from "./components/CreateProfile";
 import HeaderLayout from './components/header/HeaderLayout';
 import Messages from './components/messages/messages';
 import Requests from './components/requests/requests';
+import Account from './components/account/Account';
+import UserProfile from './components/userProfile/userProfile';
 
 function App() {
   return (
@@ -26,6 +28,7 @@ function App() {
         <Route path="register" element={<Register />} />
         <Route path="landing" element={<LandingPage />} />
         <Route path="unauthorized" element={<Unauthorized />} />
+        <Route path="user-profile" element={<HeaderLayout><UserProfile /></HeaderLayout>} />
 
         {/* Protected routes */}
         <Route element={<RequireAuth allowedRole={"ADMIN"} />}>
@@ -45,6 +48,10 @@ function App() {
         <Route element={<RequireAuth allowedRole={"STUDENT"} />}>
           <Route path="home" element={<HeaderLayout><Home /></HeaderLayout>} />
         </Route>
+        <Route element={<RequireAuth allowedRole={"STUDENT"} />}>
+          <Route path="account" element={<HeaderLayout><Account /></HeaderLayout>} />
+        </Route>
+  
 
         {/* catch-all */}
         <Route path="*" element={<Missing />} />

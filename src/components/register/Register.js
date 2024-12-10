@@ -8,6 +8,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "./Register.css";
 import botProfile from "../../images/botProfile.png";
 import axios from "../../api/axios";
+import { useNavigate } from "react-router-dom";
 
 const NAME_REGEX = /^[A-Za-z]{2,}(?:[-' ][A-Za-z]+)*.{3,}$/; // username must start with a letter (lower or upper case), followed by 3-23 characters -- username must be at least 4 characters long, and not more then 24 characters
 const PWD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,24}$/; // password requires at least one lower case letter, one upper case letter, and one special character, and has to be between 8-24 characters long
@@ -17,6 +18,7 @@ const Register = () => {
   // react functional component; rafce
   const nameRef = useRef();
   const errRef = useRef();
+  const navigate = useNavigate();
 
   const [email, setEmail] = useState("");
 
@@ -89,6 +91,7 @@ const Register = () => {
       //   console.log(response.accessToken);
       //   console.log(JSON.stringify(response));
       setSuccess(true);
+      navigate("/create-profile"); // redirect to create-profile
       // clear input fields from the registration form
     } catch (err) {
       if (!err?.response) {

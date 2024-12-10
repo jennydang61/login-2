@@ -14,7 +14,7 @@ const Login = () => {
 
   const navigate = useNavigate();
   const location = useLocation();
-  const from = location.state?.from?.pathname || "/";
+  const from = location.state?.from?.pathname || "/home";
 
   const emailRef = useRef();
   const errRef = useRef();
@@ -50,6 +50,7 @@ const Login = () => {
       setAuth({ email, pwd, role, accessToken });
       setEmail(""); // clearing the input fields
       setPwd(""); // clearing the input fields
+      //navigate("/home", { replace: true }); 
       // setSuccess(true);
       // navigate(from, { replace: true }); // going back to where you came from after successful login
       navigate(from, { replace: true });
