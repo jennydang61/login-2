@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "../../api/axios";
 import useAuth from "../../hooks/useAuth";
-import "./Messages.css";
+import "./messagesStyle.css";
 
 const Messages = () => {
   const { auth } = useAuth(); 
