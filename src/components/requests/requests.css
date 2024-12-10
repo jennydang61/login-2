@@ -1,0 +1,56 @@
+.requests-container {
+    font-family: 'Outfit', sans-serif;
+    padding: 20px;
+  }
+  
+  .requests-list {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .request-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: white;
+    margin-bottom: 10px;
+    padding: 10px;
+    border-radius: 15px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .request-sender {
+    margin-right: auto;
+  }
+  
+  .button-group {
+    display: flex;
+    gap: 10px;
+  }
+  
+  .accept-button {
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 30px;
+    cursor: pointer;
+  }
+  
+  .accept-button:hover {
+    background-color: #45a049;
+  }
+  
+  .decline-button {
+    background-color: #f34236;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 30px;
+    cursor: pointer;
+  }
+  
+  .decline-button:hover {
+    background-color: #e53935;
+  }
+  

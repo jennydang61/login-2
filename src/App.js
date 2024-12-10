@@ -26,7 +26,6 @@ function App() {
         <Route path="landing" element={<LandingPage />} />
         <Route path="unauthorized" element={<Unauthorized />} />
         <Route path="/Requests" element={<HeaderLayout><Requests /></HeaderLayout>} />
-        <Route path="/Messages" element={<HeaderLayout><Messages /></HeaderLayout>} />
         {/* /<Route path="/Account" element={<HeaderLayout><Account /></HeaderLayout>} /> */}
 
 
@@ -40,7 +39,12 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="create-profile" element={<CreateProfile />} />
         </Route>
-
+        <Route element={<RequireAuth allowedRole={"STUDENT"}/>}>
+        {/* requests goes here i'm just testing without auth */}
+        </Route>
+        <Route element={<RequireAuth allowedRole={"STUDENT"}/>}>
+          <Route path="/Messages" element={<HeaderLayout><Messages /></HeaderLayout>} />
+        </Route>
         {/* catch-all */}
         <Route path="*" element={<Missing />} />
       </Route>
