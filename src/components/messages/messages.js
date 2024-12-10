@@ -84,6 +84,9 @@ const Messages = () => {
           <div>
             <h3>Chat with {selectedUser.name}</h3>
             <div>
+              {messages.length === 0 && (
+                <p className="no-messages">No messages to show.</p>
+              )}
               <ul>
                 {messages.map((msg, index) => (
                   <li
@@ -109,6 +112,9 @@ const Messages = () => {
           </div>
         ) : (
           <div>
+            {chatUsers.length === 0 && (
+              <p className="no-messages">No messages found.</p>
+            )}
             <ul>
               {chatUsers.map((user) => (
                 <li key={user.user_ID}>

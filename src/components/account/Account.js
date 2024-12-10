@@ -1,12 +1,13 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './Account.css';
+import axios from '../../api/axios';
+import useAuth from '../../hooks/useAuth';
 
-function Account() {
+const Account = () => {
     const [isEditing, setIsEditing] = useState(false); 
-
-    // hard code for now
+    const { user } = useAuth(); 
     const [profile, setProfile] = useState({
-        fullName: 'John Doe',
+        // hard coded for now
         description: 'Looking for a clean, quiet roommate.',
         rentRange: '$1000',
         cleanliness: '8 / 10',
@@ -15,13 +16,37 @@ function Account() {
         noiseTolerance: '5 / 10',
         socialHabits: 'Introvert',
         sleepSchedule: 'Night Owl',
-    });
+    }); 
 
-    const handleSave = (event) => {
+    // this should fetch profile
+    /*
+    useEffect(() => {
+        const fetchProfile = async () => {
+            try {
+                const response = await axios.get(`/profile/${user.id}`, {
+                    headers: {
+                        Authorization: `Bearer ${localStorage.getItem('authToken')}`,
+                    },
+                });
+                setProfile(response.data); 
+            } catch (error) {
+                console.error(error);
+            }
+        };
+
+        if (user && user.id) {
+            fetchProfile();
+        }
+    }, [user]);
+    */
+
+    // update profile
+    const handleSave = async (event) => {
         event.preventDefault();
         const formData = new FormData(event.target);
-        setProfile({
-            fullName: formData.get('fullName'),
+
+        const updatedProfile = {
+            // hard coded for now
             description: formData.get('description'),
             rentRange: formData.get('rentRange'),
             cleanliness: formData.get('cleanliness'),
@@ -30,8 +55,22 @@ function Account() {
             noiseTolerance: formData.get('noiseTolerance'),
             socialHabits: formData.get('socialHabits'),
             sleepSchedule: formData.get('sleepSchedule'),
-        });
-        setIsEditing(false);
+        };
+
+        try {
+            // this is suppose to update profile not sure if it works
+            /*
+            await axios.put(`/profile/${user.id}`, updatedProfile, {
+                headers: {
+                    Authorization: `Bearer ${localStorage.getItem('authToken')}`,
+                },
+            });
+            */
+            setProfile((prev) => ({ ...prev, ...updatedProfile })); 
+            setIsEditing(false); 
+        } catch (error) {
+            console.error(error);
+        }
     };
 
     return (
@@ -39,14 +78,6 @@ function Account() {
             {isEditing ? (
                 <form className="form-wrapper" onSubmit={handleSave}>
                     <h1 className="title">Edit Account</h1>
-
-                    <label className="input-label">Full Name</label>
-                    <input
-                        className="text-input"
-                        type="text"
-                        name="fullName"
-                        defaultValue={profile.fullName}
-                    />
 
                     <label className="input-label">Description</label>
                     <textarea
@@ -99,46 +130,41 @@ function Account() {
                         className="text-input"
                         name="location"
                         defaultValue={profile.location}
-
-                        >
-                            <option value="NW">Northwest</option>
-                            <option value="NE">Northeast</option>
-                            <option value="SW">Southwest</option>
-                            <option value="SE">Southeast</option>
-                        </select>
+                    >
+                        <option value="NW">Northwest</option>
+                        <option value="NE">Northeast</option>
+                        <option value="SW">Southwest</option>
+                        <option value="SE">Southeast</option>
+                    </select>
 
                     <label className="input-label">Social Habits</label>
                     <select
                         className="text-input"
                         name="socialHabits"
                         defaultValue={profile.socialHabits}
-
-                        >
-                            <option value="Extrovert">Extrovert</option>
-                            <option value="Introvert">Introvert</option>
-                            <option value="Ambivert">Ambivert</option>
-                        </select>
+                    >
+                        <option value="Extrovert">Extrovert</option>
+                        <option value="Introvert">Introvert</option>
+                        <option value="Ambivert">Ambivert</option>
+                    </select>
 
                     <label className="input-label">Sleep Schedule</label>
                     <select
                         className="text-input"
                         name="sleepSchedule"
                         defaultValue={profile.sleepSchedule}
-
-                        >
-                            <option value="Early Bird">Early Bird</option>
-                            <option value="Night Owl">Night Owl</option>
-                        </select>
-
+                    >
+                        <option value="Early Bird">Early Bird</option>
+                        <option value="Night Owl">Night Owl</option>
+                    </select>
                     <button type="submit" className="edit-button">
                         Save
                     </button>
                 </form>
             ) : (
-
                 <div className="view-mode">
                     <h1 className="title">Account</h1>
-                    <p className="view-field"><strong>Full Name:</strong> {profile.fullName}</p>
+                    <p className="view-field"><strong>Full Name:</strong> {user?.name}</p>
                     <p className="view-field"><strong>Description:</strong> {profile.description}</p>
                     <p className="view-field"><strong>Rent Range:</strong> {profile.rentRange}</p>
                     <p className="view-field"><strong>Cleanliness:</strong> {profile.cleanliness}</p>
@@ -154,6 +180,6 @@ function Account() {
             )}
         </div>
     );
-}
+};
 
 export default Account;
