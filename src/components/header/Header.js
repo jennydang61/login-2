@@ -1,5 +1,5 @@
 import './Header.css';
-import { useNavigate } from 'react-router-dom'; 
+import { useNavigate, Link} from 'react-router-dom';
 import React from 'react';
 
 function Header() {
@@ -9,9 +9,9 @@ function Header() {
         {/* home not done yet */}
         <h1 className="logo" href="/" onClick={() => navigate('/Home')}>LOGO</h1>
         <nav className="nav">
-          <a href="/requests" className="nav-link">Requests</a>
-          <a href="/messages" className="nav-link">Messages</a>
-          <a href="/account" className="nav-link">Account</a>
+          <Link className='nav-link' to="/requests">Requests</Link>
+          <Link className='nav-link' to="/messages">Messages</Link>
+          <Link className='nav-link' to="/account">Account</Link>
         </nav>
       </header>
     );

@@ -20,10 +20,11 @@ function UserProfile() {
 
     const handleSendRequest = async () => {
         try {
+            // hard coded for now
             const response = await axios.post('/request/send', {
-                receiver_ID: 2, // replace with actual receiver ID
-                sender_ID: 1,    // replace with actual sender ID
-                sender_name: 'John Doe',  // replace with dynamic sender name
+                receiver_ID: 2,
+                sender_ID: 1,    
+                sender_name: 'John Doe',  
                 description: profile.description
             });
             setMessage(response.data.success);

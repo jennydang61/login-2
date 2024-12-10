@@ -1,12 +1,11 @@
 import './requests.css';
 import React, { useState, useEffect, useCallback } from "react";
 import axios from "../../api/axios"; 
-import useAuth  from "../../hooks/useAuth";
+import useAuth from "../../hooks/useAuth";
 
 const Requests = () => {
   const { user } = useAuth(); 
   const [requests, setRequests] = useState([]);
-  const [loading, setLoading] = useState(true);
 
   // fetch roommate requests
   const fetchRequests = useCallback(async () => {
@@ -17,11 +16,9 @@ const Requests = () => {
           Authorization: `Bearer ${localStorage.getItem("authToken")}`,
         },
       });
-      setRequests(response.data);
+      setRequests(response.data || []); 
     } catch (err) {
       console.log(err);
-    } finally {
-      setLoading(false);
     }
   }, [user]);
 
@@ -63,34 +60,32 @@ const Requests = () => {
 
   useEffect(() => {
     fetchRequests();
-  }, [fetchRequests,user]);
+  }, [fetchRequests]);
 
-  if (loading) return null;
-  
   return (
-        <div className="requests-container">
-          <h2>Roommate Requests</h2>
-          {requests.length === 0 ? (
-            <p className="no-requests">No requests found.</p>
-          ) : (
-            <ul className="requests-list">
-              {requests.map((request) => (
-                <li key={request.status_ID} className="request-item">
-                  <p className="request-sender">Request from: {request.sender_name}</p>
-                  <div className="button-group">
-                    <button className="accept-button" onClick={() => handleAccept(request.status_ID)}>
-                      Accept
-                    </button>
-                    <button className="decline-button" onClick={() => handleDecline(request.status_ID)}>
-                      Decline
-                    </button>
-                  </div>
-                </li>
-              ))}
-            </ul>
-          )}
-        </div>
-      );
+    <div className="requests-container">
+      <h2>Roommate Requests</h2>
+      {requests.length === 0 ? (
+        <p className="no-requests">No requests found.</p> 
+      ) : (
+        <ul className="requests-list">
+          {requests.map((request) => (
+            <li key={request.status_ID} className="request-item">
+              <p className="request-sender">Request from: {request.sender_name}</p>
+              <div className="button-group">
+                <button className="accept-button" onClick={() => handleAccept(request.status_ID)}>
+                  Accept
+                </button>
+                <button className="decline-button" onClick={() => handleDecline(request.status_ID)}>
+                  Decline
+                </button>
+              </div>
+            </li>
+          ))}
+        </ul>
+      )}
+    </div>
+  );
 };
 
 // hard code for testing
