@@ -12,7 +12,7 @@ const Admin = () => {
       <br />
       <VerificationRequests />
       <div className="flexGrow">
-        <Link to="/linkpage">Link Page</Link>
+        {/* <Link to="/linkpage">Link Page</Link> */}
       </div>
       {/* <button onClick={refresh}>Refresh</button> // devel */}
     </section>
