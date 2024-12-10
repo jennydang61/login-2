@@ -1,70 +1,34 @@
-# Getting Started with Create React App
+### Overview
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This repository contains the frontend implementation for the Roommate Finder System, a web application designed to connect university students with compatible roommates. The frontend provides an intuitive and user-friendly interface for browsing profiles, managing roommate requests, and customizing user preferences.
 
-## Available Scripts
+Built with React.js, the application focuses on responsiveness, interactivity, and seamless communication with the backend via RESTful APIs.
 
-In the project directory, you can run:
+### Technology Stack
+1. React.js
 
-### `npm start`
+Reason for Choosing:
+React.js is a powerful library for building interactive and dynamic user interfaces. Its key benefits include:
+	•	Component-Based Architecture: Enables reusable, maintainable UI components for profile cards, forms, and modals.
+	•	Declarative Syntax: Simplifies state and DOM management, improving development efficiency.
+	•	Strong Ecosystem: Provides access to tools like React Router for navigation and Context API for state management.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### Project Structure
+```
+ roommate-finder-frontend/
+├── src/
+│   ├── components/    # Reusable UI components (e.g., ProfileCard, RequestModal)
+│   ├── pages/         # Main views of the app (e.g., Home, Profile, Requests)
+│   ├── context/       # State management using Context API
+│   ├── utils/         # Helper functions for data formatting or API calls
+│   ├── App.js         # Main application component
+│   └── index.js       # Entry point of the application
+├── public/            # Static assets and index.html
+└── README.md          # Documentation
+```
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Features
 
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+	•	Profile Browsing: View roommate profiles with filtering options.
+	•	Request Management: Send, accept, or decline roommate requests.
+	•	Responsive Design: Optimized for mobile and desktop users.
