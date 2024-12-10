@@ -126,8 +126,15 @@
 }
 
 .profile-name {
-    font-size: 18px;
+    font-size: 26px;
     font-weight: 600;
+    color: #262628;
+    margin-bottom: 10px;
+}
+
+.profile-text {
+    font-size: 20px;
+    font-weight: 500;
     color: #262628;
     margin-bottom: 10px;
 }

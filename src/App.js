@@ -42,6 +42,9 @@ function App() {
         <Route element={<RequireAuth allowedRole={"STUDENT"} />}>
         <Route path="requests" element={<HeaderLayout><Requests /></HeaderLayout>} />
         </Route>
+        <Route element={<RequireAuth allowedRole={"STUDENT"} />}>
+          <Route path="home" element={<HeaderLayout><Home /></HeaderLayout>} />
+        </Route>
 
         {/* catch-all */}
         <Route path="*" element={<Missing />} />
