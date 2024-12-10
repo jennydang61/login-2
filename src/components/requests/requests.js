@@ -1,5 +1,5 @@
 import './requests.css';
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import axios from "../../api/axios"; 
 import useAuth  from "../../hooks/useAuth";
 
@@ -9,8 +9,8 @@ const Requests = () => {
   const [loading, setLoading] = useState(true);
 
   // fetch roommate requests
-  const fetchRequests = async () => {
-    if (!user) return; 
+  const fetchRequests = useCallback(async () => {
+    if (!user) return;
     try {
       const response = await axios.get(`/request/status?receiver_ID=${user.id}`, {
         headers: {
@@ -18,12 +18,12 @@ const Requests = () => {
         },
       });
       setRequests(response.data);
-    } catch (error) {
-      console.error("Error fetching requests:", error);
+    } catch (err) {
+      console.log(err);
     } finally {
       setLoading(false);
     }
-  };
+  }, [user]);
 
   // accept
   const handleAccept = async (requestId) => {
@@ -38,8 +38,8 @@ const Requests = () => {
         }
       );
       setRequests((prev) => prev.filter((req) => req.status_ID !== requestId));
-    } catch (error) {
-      console.error("Error accepting request:", error);
+    } catch (err) {
+      console.log(err);
     }
   };
 
@@ -56,14 +56,14 @@ const Requests = () => {
         }
       );
       setRequests((prev) => prev.filter((req) => req.status_ID !== requestId));
-    } catch (error) {
-      console.error("Error declining request:", error);
+    } catch (err) {
+      console.log(err);
     }
   };
 
   useEffect(() => {
     fetchRequests();
-  }, [user]);
+  }, [fetchRequests,user]);
 
   if (loading) return null;
   
@@ -92,7 +92,6 @@ const Requests = () => {
         </div>
       );
 };
-
 
 // hard code for testing
 /*const Requests = () => {

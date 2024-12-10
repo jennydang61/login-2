@@ -3,7 +3,7 @@ import people from "../../images/people.png";
 import chatbot from "../../images/chatbot.png";
 import pfp from "../../images/pfp.png";
 import pickinguser from "../../images/pickinguser.png";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import React from "react";
 
 function LandingPage() {
@@ -16,9 +16,9 @@ function LandingPage() {
           <header className="nav-bar">
             <h1 className="logo">LOGO</h1>
             <nav>
-              <a href="" className="login" onClick={() => navigate("/login")}>
+              <Link to="/login" className="login">
                 Sign in
-              </a>
+              </Link>
             </nav>
           </header>
         </div>

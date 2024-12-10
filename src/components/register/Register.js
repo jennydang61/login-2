@@ -322,7 +322,7 @@ const Register = () => {
                         <br />
                         <span className="line">
                           {/* put router link here */}
-                          <a href="login">Sign In</a> {/* <-- placeholder*/}
+                          <a href="login">Sign In</a> 
                         </span>
                       </p>
                     </section>
