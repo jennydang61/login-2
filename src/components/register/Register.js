@@ -307,7 +307,7 @@ const Register = () => {
                         </div>
 
                         <button
-                          classsName="signt-up-button"
+                          className="sign-up-button"
                           disabled={
                             !validName || !validPwd || !validMatch
                               ? true
